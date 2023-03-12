@@ -1,6 +1,8 @@
 package com.wangjian.dagger2androiddemo.login.sub
 
 import com.wangjian.dagger2androiddemo.login.LoginActivity
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment1
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment2
 import com.wangjian.dagger2androiddemo.login.scope.ActivityScope
 import dagger.Subcomponent
 
@@ -16,6 +18,8 @@ import dagger.Subcomponent
 @Subcomponent
 interface LoginComponent {
     fun inject(activity: LoginActivity)
+    fun inject(fragment1: LoginFragment1)
+    fun inject(fragment2: LoginFragment2)
 
     @Subcomponent.Factory
     interface Factory {
