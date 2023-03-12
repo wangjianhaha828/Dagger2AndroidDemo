@@ -3,8 +3,11 @@ package com.wangjian.dagger2androiddemo.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import com.wangjian.dagger2androiddemo.MyApplication
 import com.wangjian.dagger2androiddemo.R
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment1
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment2
 import com.wangjian.dagger2androiddemo.login.sub.LoginComponent
 import javax.inject.Inject
 
@@ -13,6 +16,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginComponent: LoginComponent
     @Inject
     lateinit var loginViewModel: LoginViewModel
+    private var flag = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -28,5 +32,41 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_get_data).setOnClickListener {
             loginViewModel.getData()
         }
+        addFragment(LoginFragment1.newInstance())
+        findViewById<Button>(R.id.btn_switch_fragment).setOnClickListener {
+            if (flag) switchFragment(LoginFragment2.newInstance())
+            else switchFragment(LoginFragment1.newInstance())
+            flag = !flag
+        }
     }
+
+    //切换fragment,并添加到backStack
+    private fun switchFragment(fragment: Fragment, loss: Boolean = true) {
+        supportFragmentManager.beginTransaction().apply {
+            addToBackStack("")
+            replace(R.id.container,fragment,"")
+//            commit()
+            if (loss) commitAllowingStateLoss() else commit()
+        }
+    }
+
+    //切换fragment,不添加到backStack
+    private fun switchFragmentWithoutBack(fragment: Fragment, loss: Boolean = true) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container,fragment,"")
+//            commit()
+            if (loss) commitAllowingStateLoss() else commit()
+        }
+    }
+
+    //添加fragment
+    private fun addFragment(fragment: Fragment, loss: Boolean = true) {
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.container,fragment,"")
+//            add(R.id.container,fragment)
+//            commit()
+            if (loss) commitAllowingStateLoss() else commit()
+        }
+    }
+
 }
