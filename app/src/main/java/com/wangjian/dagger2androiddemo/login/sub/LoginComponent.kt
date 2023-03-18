@@ -1,6 +1,8 @@
 package com.wangjian.dagger2androiddemo.login.sub
 
 import com.wangjian.dagger2androiddemo.login.LoginActivity
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment1
+import com.wangjian.dagger2androiddemo.login.fragment.LoginFragment2
 import com.wangjian.dagger2androiddemo.login.scope.ActivityScope
 import dagger.Subcomponent
 
@@ -12,9 +14,12 @@ import dagger.Subcomponent
 //3.1: 创建新的 Dagger 模块（例如 SubcomponentsModule），并将子组件的类传递给注解的 subcomponents 属性。
 //3.2: 将新模块（即 SubcomponentsModule）添加到 ApplicationComponent
 //3.3: 在 ApplicationComponent 中提供在接口中创建 LoginComponent 实例的 factory
+@ActivityScope
 @Subcomponent
 interface LoginComponent {
     fun inject(activity: LoginActivity)
+    fun inject(fragment1: LoginFragment1)
+    fun inject(fragment2: LoginFragment2)
 
     @Subcomponent.Factory
     interface Factory {

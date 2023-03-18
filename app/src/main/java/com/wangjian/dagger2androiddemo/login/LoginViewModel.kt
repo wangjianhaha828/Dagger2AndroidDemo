@@ -6,6 +6,7 @@ import com.wangjian.dagger2androiddemo.login.scope.ActivityScope
 import javax.inject.Inject
 
 //UserRepository由ApplicationComponent负责构建
+@ActivityScope
 class LoginViewModel @Inject constructor(private val userRepository : UserRepository) {
     fun login(){
         Log.d("TAG","登录:${this}")

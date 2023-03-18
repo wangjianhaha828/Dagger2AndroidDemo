@@ -11,6 +11,6 @@ import javax.inject.Singleton
 @Component(modules = [UserRepositoryModel::class, SubcomponentsModule::class])
 interface ApplicationComponent {
     //因为使用子组件LoginComponent进行注入，所以可以移除
-    fun inject(activity: LoginActivity)
+//    fun inject(activity: LoginActivity)
     fun loginComponent() : LoginComponent.Factory
 }

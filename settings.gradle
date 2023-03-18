@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Dagger2AndroidDemo"
 include ':app'
+include ':annotation-sample'
+include ':dagger-scope-sample'
