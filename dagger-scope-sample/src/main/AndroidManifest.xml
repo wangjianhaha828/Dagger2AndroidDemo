@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dagger2AndroidDemo">
         <activity
+            android:name=".activity.Scope3Activity"
+            android:exported="false" />
+        <activity
             android:name=".activity.Scope2Activity"
             android:exported="false" />
         <activity

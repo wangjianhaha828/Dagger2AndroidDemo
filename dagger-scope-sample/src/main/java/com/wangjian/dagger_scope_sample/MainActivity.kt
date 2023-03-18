@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.wangjian.dagger_scope_sample.activity.Scope1Activity
 import com.wangjian.dagger_scope_sample.activity.Scope2Activity
+import com.wangjian.dagger_scope_sample.activity.Scope3Activity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btn_to_scope2).setOnClickListener {
             startActivity(Intent(this, Scope2Activity::class.java))
+        }
+        findViewById<Button>(R.id.btn_to_scope3).setOnClickListener {
+            startActivity(Intent(this, Scope3Activity::class.java))
         }
     }
 }

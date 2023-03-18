@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.wangjian.dagger_scope_sample.R
-import com.wangjian.dagger_scope_sample.component.DaggerScope1ActivityComponent
+import com.wangjian.dagger_scope_sample.component.DaggerScope3ActivityComponent
 import com.wangjian.dagger_scope_sample.data.ActivityUserData
 import com.wangjian.dagger_scope_sample.data.ApplicationUserData
 import com.wangjian.dagger_scope_sample.data.SingletonUserData
 import com.wangjian.dagger_scope_sample.data.UserData
 import javax.inject.Inject
 
-class Scope2Activity : AppCompatActivity() {
+class Scope3Activity : AppCompatActivity() {
     @Inject
     lateinit var userData1: UserData
     @Inject
@@ -32,8 +32,8 @@ class Scope2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scope2)
-        (applicationContext as MyApplication).scope1ActivityComponent.inject(this)
+        setContentView(R.layout.activity_scope3)
+        DaggerScope3ActivityComponent.create().inject(this)
         findViewById<Button>(R.id.btn_get_data).setOnClickListener{
             Log.d("TAG",userData1.toString())
             Log.d("TAG",userData2.toString())
