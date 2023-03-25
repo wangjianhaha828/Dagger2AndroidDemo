@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.wangjian.annotation_sample.R
-import com.wangjian.annotation_sample.data.BaseData2
+import com.wangjian.annotation_sample.data.BaseData
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class Scope2Activity : AppCompatActivity() {
     @Inject
-    lateinit var baseData: BaseData2
+    lateinit var baseData: BaseData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scope2)

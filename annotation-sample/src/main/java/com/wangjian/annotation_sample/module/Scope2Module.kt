@@ -1,6 +1,6 @@
 package com.wangjian.annotation_sample.module
 
-import com.wangjian.annotation_sample.data.BaseData2
+import com.wangjian.annotation_sample.data.BaseData
 import com.wangjian.annotation_sample.data.Scope2Data
 import dagger.Binds
 import dagger.Module
@@ -8,5 +8,5 @@ import dagger.Module
 @Module
 abstract class Scope2Module {
     @Binds
-    abstract fun bindScope2Data(scope2Data: Scope2Data): BaseData2
+    abstract fun bindScope2Data(scope2Data: Scope2Data): BaseData
 }
