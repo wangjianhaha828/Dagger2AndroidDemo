@@ -1,6 +1,8 @@
 package com.wangjian.annotation_sample.data
 
-class Scope2Data : BaseData {
+import javax.inject.Inject
+
+class Scope2Data  @Inject constructor(): BaseData2 {
     override fun getData(): String {
         return "scope2 data"
     }

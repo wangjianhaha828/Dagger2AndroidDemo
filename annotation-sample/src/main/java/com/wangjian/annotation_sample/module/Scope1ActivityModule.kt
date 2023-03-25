@@ -2,8 +2,6 @@ package com.wangjian.annotation_sample.module
 
 import com.wangjian.annotation_sample.activity.Scope1Activity
 import com.wangjian.annotation_sample.component.Scope1ActivitySubcomponent
-import com.wangjian.annotation_sample.data.BaseData
-import com.wangjian.annotation_sample.data.Scope1Data
 import dagger.Binds
 import dagger.Module
 import dagger.android.AndroidInjector
