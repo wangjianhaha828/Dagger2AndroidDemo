@@ -31,8 +31,11 @@ class Scope2Fragment : Fragment() {
     private var param2: String? = null
 
     @Inject
+    @Named("Scope2Data")
+    lateinit var baseData1: BaseData
+    @Inject
     @Named("Scope2DataF")
-    lateinit var baseData: BaseData
+    lateinit var baseData2: BaseData
 
     override fun onAttach(context: Context) {
         //这里使用的是 androidx.fragment.app.Fragment ，所以需要使用 dagger-android-support 里面的 AndroidSupportInjection 来注入 Fragment。
@@ -60,7 +63,8 @@ class Scope2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.btn_get_data).setOnClickListener{
-            Log.d("TAG", baseData.getData())
+            Log.d("TAG", baseData1.getData())
+            Log.d("TAG", baseData2.getData())
         }
     }
 
